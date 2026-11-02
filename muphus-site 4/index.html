@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>MUPHUS — DJ &amp; Producer | Official Website</title>
+  <meta name="description" content="Official website of MUPHUS, German DJ and electronic music producer. Releases, labels, live performances, EPK and booking.">
+  <meta name="theme-color" content="#08090b">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Open Graph (Domain vor Launch in og:url / og:image als absolute URL eintragen) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MUPHUS">
+  <meta property="og:title" content="MUPHUS — DJ &amp; Producer">
+  <meta property="og:description" content="Official website of MUPHUS, German DJ and electronic music producer.">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="fonts/space-grotesk-var.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/inter-var.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script>document.documentElement.classList.add('js');</script>
+  <!-- Three.js lokal gehostet (keine Drittanbieter-Requests) -->
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three.module.js", "three/addons/": "./vendor/" } }
+  </script>
+  <script type="application/ld+json">
+    { "@context": "https://schema.org", "@type": "MusicGroup", "name": "MUPHUS", "genre": "Electronic music" }
+  </script>
+</head>
+<body>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <a class="skip-link" href="#music">Skip to content</a>
+
+  <!-- ====================== HEADER ====================== -->
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#top" aria-label="MUPHUS – back to top">
+        <img src="assets/muphus_white_trimmed.png" width="1246" height="295" alt="MUPHUS">
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a href="#music">Music</a></li>
+          <li><a href="#milestones">Milestones</a></li>
+          <li><a href="#live">Live</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a class="btn btn--sm" href="#contact" data-epk-link>EPK</a>
+          <a class="btn btn--sm btn--primary" href="#contact" data-book-link>Booking</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ====================== 01 HERO ====================== -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero__atmos" id="hero-atmos" aria-hidden="true"><div class="hero__beam"></div></div>
+      <div id="hero-media-slot" aria-hidden="true"></div>
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+
+      <div class="hero__content" id="hero-content">
+        <p class="meta hero__descriptor" data-hero style="--d:150" id="hero-descriptor">DJ / PRODUCER · GERMANY</p>
+        <h1 class="hero__logo" id="hero-title" data-hero style="--d:300">
+          <img src="assets/muphus_white_trimmed.png" width="1246" height="295" alt="MUPHUS" fetchpriority="high">
+        </h1>
+        <p class="hero__claim" data-hero style="--d:520" id="hero-claim">MUSIC IS MORE THAN SOUND.</p>
+        <div class="hero__cta" data-hero style="--d:700">
+          <a class="btn btn--primary" id="hero-spotify" href="#music" target="_blank" rel="noopener noreferrer">Open Spotify <svg class="ext" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14L21 3M14 3h7v7M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
+          <a class="btn" href="#contact" data-book-link>Booking</a>
+        </div>
+      </div>
+
+      <a class="hero__scroll meta" href="#music" aria-label="Scroll to music"><span>Scroll</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <!-- ====================== 02 MUSIC ====================== -->
+    <section class="section" id="music" aria-labelledby="music-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">01 — Music</p>
+          <h2 class="h2" id="music-title">Discography</h2>
+          <p class="lead">Releases, collaborations and remixes.</p>
+        </header>
+
+        <div class="filters reveal" role="group" aria-label="Filter releases" id="release-filters">
+          <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-filter="single" aria-pressed="false">Singles</button>
+          <button class="chip" type="button" data-filter="collaboration" aria-pressed="false">Collaborations</button>
+          <button class="chip" type="button" data-filter="remix" aria-pressed="false">Remixes</button>
+        </div>
+
+        <ul class="release-grid" id="release-grid" aria-live="polite"></ul>
+        <noscript><p class="lead">Please enable JavaScript to browse the discography.</p></noscript>
+
+        <div class="video-block reveal" id="video-block">
+          <p class="eyebrow" style="margin-bottom:20px">Official Video</p>
+          <div class="video-frame" id="video-frame">
+            <button class="video-facade" id="video-facade" type="button" aria-label="Load and play the official music video from YouTube">
+              <span>
+                <span class="video-facade__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
+                <span class="video-facade__text">
+                  <strong id="video-title">Official Music Video</strong>
+                  <small>Click to load. This loads the video from YouTube and transmits data to Google (youtube-nocookie.com).</small>
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== 03 LABELS ====================== -->
+    <section class="section" id="labels" aria-labelledby="labels-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">02 — Labels</p>
+          <h2 class="h2" id="labels-title">Labels &amp; Partners</h2>
+        </header>
+        <ul class="label-grid reveal" id="label-grid"></ul>
+      </div>
+    </section>
+
+    <!-- ====================== 04 MILESTONES ====================== -->
+    <section class="section" id="milestones" aria-labelledby="milestones-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">03 — Career</p>
+          <h2 class="h2" id="milestones-title">Milestones</h2>
+        </header>
+        <div class="stats" id="stats"></div>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
+
+    <!-- ====================== 05 LIVE ====================== -->
+    <section class="section" id="live" aria-labelledby="live-title">
+      <div class="container live-bar">
+        <header class="reveal">
+          <p class="eyebrow">04 — Live</p>
+          <h2 class="h2" id="live-title">On Stage</h2>
+        </header>
+        <div class="arrows" id="live-arrows">
+          <button class="arrow-btn" type="button" id="live-prev" aria-label="Previous performances">←</button>
+          <button class="arrow-btn" type="button" id="live-next" aria-label="Next performances">→</button>
+        </div>
+      </div>
+      <div class="live-scroller" id="live-scroller" tabindex="0" role="region" aria-label="Performances"></div>
+    </section>
+
+    <!-- ====================== 06 ABOUT ====================== -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="about__portrait reveal" id="about-portrait"></div>
+        <div class="about__text reveal" style="--d:150">
+          <p class="eyebrow">05 — About</p>
+          <h2 class="h2" id="about-title">About MUPHUS</h2>
+          <div id="about-copy"></div>
+          <dl class="facts" id="about-facts"></dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== 07 EPK & BOOKING ====================== -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">06 — Contact</p>
+          <h2 class="h2" id="contact-title">Press &amp; Booking</h2>
+          <p class="lead">Everything promoters, agencies, labels and media need — in one place.</p>
+        </header>
+
+        <div class="contact-grid">
+          <article class="panel reveal">
+            <p class="meta">Electronic Press Kit</p>
+            <h3>EPK</h3>
+            <p>Biography, press photos, releases and technical information.</p>
+            <div class="btns">
+              <a class="btn btn--primary" id="epk-btn" href="#contact" data-requires="epk">Open EPK <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--sm" id="epk-dl" href="#" download="MUPHUS-EPK.pdf" hidden>Save PDF</a>
+              <span class="hint" id="epk-hint"></span>
+            </div>
+          </article>
+
+          <article class="panel reveal" style="--d:120">
+            <p class="meta">Bookings &amp; Inquiries</p>
+            <h3>Book MUPHUS</h3>
+            <p>Send your inquiry with date, venue and event details by email.</p>
+            <div class="btns">
+              <a class="btn btn--primary" id="book-btn" href="#contact" data-requires="booking">Book MUPHUS <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="mail" id="book-mail" hidden></a>
+              <span class="hint" id="book-hint"></span>
+            </div>
+          </article>
+        </div>
+
+        <div class="socials reveal" id="socials" aria-label="Social links"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__top">
+        <a class="footer__logo" href="#top" aria-label="MUPHUS – back to top">
+          <img src="assets/muphus_white_trimmed.png" width="1246" height="295" alt="MUPHUS" loading="lazy">
+        </a>
+        <div class="footer__cols">
+          <div class="footer__col">
+            <h2>Navigate</h2>
+            <ul>
+              <li><a href="#music">Music</a></li>
+              <li><a href="#milestones">Milestones</a></li>
+              <li><a href="#live">Live</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h2>Connect</h2>
+            <ul id="footer-links"></ul>
+          </div>
+          <div class="footer__col">
+            <h2>Legal</h2>
+            <ul>
+              <li><a href="impressum.html">Impressum</a></li>
+              <li><a href="datenschutz.html">Datenschutz</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <time id="year">2026</time> MUPHUS. All rights reserved.</span>
+        <span>DJ / Producer · Germany</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================== RELEASE DIALOG ====================== -->
+  <dialog class="dialog" id="release-dialog" aria-labelledby="dialog-title">
+    <button class="dialog__close" type="button" id="dialog-close" aria-label="Close">×</button>
+    <div class="dialog__body">
+      <div class="dialog__art" id="dialog-art"></div>
+      <div class="dialog__info">
+        <p class="meta" id="dialog-kind"></p>
+        <h3 class="dialog__title" id="dialog-title"></h3>
+        <p class="release-card__artists" id="dialog-artists"></p>
+        <dl class="dialog__credits" id="dialog-credits"></dl>
+        <div class="dialog__links" id="dialog-links"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
